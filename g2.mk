@@ -208,8 +208,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.sensors.pedometer=true \
 	ro.qualcomm.sensors.pam=true \
 	ro.qualcomm.sensors.scrn_ortn=true \
-	debug.qualcomm.sns.hal=1 \
-	debug.qualcomm.sns.daemon=1 \
+	debug.qualcomm.sns.hal=i \
+	debug.qualcomm.sns.daemon=i \
 	debug.qualcomm.sns.libsensor1=e
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
