@@ -44,8 +44,6 @@ on fs
     mount_all ./fstab.g2
     write /sys/kernel/boot_adsp/boot 1
     setprop ro.crypto.fuse_sdcard true
-    
-    symlink /system/etc/firmware /system/vendor/firmware
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
