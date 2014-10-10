@@ -120,7 +120,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-        ro.sf.lcd_density=480 \
+	ro.sf.lcd_density=480 \
 	ro.opengles.version=196608 \
 	ro.loki_enabled=1
 
@@ -129,7 +129,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.apm_sim_not_pwdn=1 \
 	ro.telephony.call_ring.multiple=0 \
 	persist.radio.mode_pref_nv10=1 \
-        ro.telephony.ril_class=LgeLteRIL \
+    ro.telephony.ril_class=LgeLteRIL \
 	ro.telephony.ril.v3=qcomdsds
 
 PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
@@ -162,7 +162,7 @@ PRODUCT_PACKAGES += \
 	hwcomposer.msm8974 \
 	gralloc.msm8974 \
 	copybit.msm8974 \
-        memtrack.msm8974
+	memtrack.msm8974
 
 # Local wrapper for fixups
 PRODUCT_PACKAGES += \
@@ -180,7 +180,7 @@ PRODUCT_PACKAGES += \
 	libqcomvoiceprocessingdescriptors
 
 PRODUCT_PACKAGES += \
-        libmm-omxcore \
+	libmm-omxcore \
 	libdivxdrmdecrypt \
 	libOmxVdec \
 	libOmxVenc \
@@ -241,13 +241,13 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
 
 PRODUCT_PACKAGES += \
-        lights.g2
+	lights.g2
 
 # This hw ships locked, work around it with loki
 PRODUCT_PACKAGES += \
-        loki.sh \
-        loki_patch \
-        loki_flash
+	loki.sh \
+	loki_patch \
+	loki_flash
 
 # QC Perf
 PRODUCT_PROPERTY_OVERRIDES += \
