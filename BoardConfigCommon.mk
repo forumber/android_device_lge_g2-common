@@ -36,6 +36,16 @@ TARGET_USES_ION := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 HAVE_ADRENO_SOURCE:= false
 
+# Qualcomm
+BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QC_TIME_SERVICES := true
+TARGET_USES_QCOM_BSP := true
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP
+TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_QCOM_DISPLAY_VARIANT := caf-new
+TARGET_QCOM_MEDIA_VARIANT := caf-new
+
 # Kernel
 BOARD_KERNEL_BASE     := 0x00000000
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=g2 user_debug=31 msm_rtb.filter=0x0 mdss_mdp.panel=1:dsi:0:qcom,mdss_dsi_g2_lgd_cmd
@@ -59,12 +69,6 @@ BOARD_WLAN_DEVICE           := bcmdhd
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/system/etc/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/system/etc/firmware/fw_bcmdhd_apsta.bin"
-
-# Qcom
-TARGET_QCOM_DISPLAY_VARIANT := caf
-BOARD_USES_QCOM_HARDWARE := true
-TARGET_USES_QCOM_BSP := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
@@ -113,7 +117,6 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 
 # Misc
 BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_USES_QC_TIME_SERVICES := true
 BOARD_NFC_HAL_SUFFIX := g2
 BOARD_RIL_CLASS := ../../../device/lge/g2-common/ril/
 TARGET_PROVIDES_LIBLIGHT := true
