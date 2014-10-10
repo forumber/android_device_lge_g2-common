@@ -65,6 +65,10 @@ PRODUCT_COPY_FILES += \
 # Prepatch to fix BT/WiFi bus lockups
 PRODUCT_COPY_FILES += device/lge/g2-common/bluetooth/bcm4335_prepatch.hcd:system/vendor/firmware/bcm4335_prepatch.hcd
 
+# init.d
+PRODUCT_COPY_FILES += \
+	device/lge/d802/10copy_firmwares:system/etc/init.d/10copy_firmwares
+
 # Permissions
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \

@@ -1,0 +1,17 @@
+#!/system/bin/sh
+#
+# Copy firmware files to /system
+#
+
+mount -o rw,remount /system
+
+ln -s /system/etc/firmware /system/vendor/firmware
+
+busybox sleep 10
+
+busybox cp /firmware/image/* /system/etc/firmware/
+busybox cp /persist-lg/firmware/* /system/etc/firmware/
+
+busybox chmod 0775 /system/etc/firmware/*
+
+mount -o ro,remount /system
