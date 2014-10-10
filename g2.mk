@@ -67,7 +67,7 @@ PRODUCT_COPY_FILES += device/lge/g2-common/bluetooth/bcm4335_prepatch.hcd:system
 
 # init.d
 PRODUCT_COPY_FILES += \
-	device/lge/d802/10copy_firmwares:system/etc/init.d/10copy_firmwares
+	device/lge/g2-common/10copy_firmwares:system/etc/init.d/10copy_firmwares
 
 # Permissions
 PRODUCT_COPY_FILES += \
