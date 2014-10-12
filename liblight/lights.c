@@ -137,6 +137,7 @@ static int
 set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
+    int brightness = 0;
 
     int len;
     int onMS, offMS;
