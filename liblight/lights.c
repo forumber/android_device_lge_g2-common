@@ -137,8 +137,6 @@ static int
 set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
-    int brightness = 0;
-
     int len;
     int onMS, offMS;
     unsigned int colorRGB;
@@ -159,13 +157,9 @@ set_speaker_light_locked(struct light_device_t* dev,
 
         colorRGB = state->color;
 
-        brightness = rgb_to_brightness(blink_pattern);
 
         sprintf(blink_pattern,"0x%x,%d,%d",colorRGB,onMS,offMS);
         write_str(PTN_BLINK_FILE, blink_pattern);
-        /* Do the back-button lights, too */
-        write_int(BACKBTN_LEFT_FILE, brightness);
-        write_int(BACKBTN_RIGHT_FILE, brightness);
     }
 
     return 0;
