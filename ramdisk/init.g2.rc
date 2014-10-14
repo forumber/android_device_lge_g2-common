@@ -344,7 +344,17 @@ service sensors /system/bin/sensors.qcom
     user root
     group root
 
-service qcom-sensor-sh /system/bin/sh /sensors.sh
+service qcom-sensor-sh /system/bin/sh /init.g2.sensors.sh
+    class main
+    user root
+    oneshot
+
+service qcom-thermal-sh /system/bin/sh /init.g2.thermal_conf.sh
+    class main
+    user root
+    oneshot
+
+service qcom-post_boot-sh /system/bin/sh /init.g2.post_boot.sh
     class main
     user root
     oneshot

@@ -28,11 +28,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.g2.rc:root/init.g2.rc \
     $(LOCAL_PATH)/ramdisk/init.g2.usb.rc:root/init.g2.usb.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.g2.rc:root/ueventd.g2.rc \
-    $(LOCAL_PATH)/ramdisk/fstab.g2:root/fstab.g2
+    $(LOCAL_PATH)/ramdisk/fstab.g2:root/fstab.g2 \
+    $(LOCAL_PATH)/ramdisk/init.g2.post_boot.sh:root/init.g2.post_boot.sh \
+    $(LOCAL_PATH)/ramdisk/init.g2.sensors.sh:root/init.g2.sensors.sh \
+    $(LOCAL_PATH)/ramdisk/init.g2.thermal_conf.sh:root/init.g2.thermal_conf.sh
 
 # Sensor Configs
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ramdisk/sensors.sh:root/sensors.sh \
     $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf \
     $(LOCAL_PATH)/configs/sensor_def_common.conf:system/etc/sensor_def_common.conf
 
