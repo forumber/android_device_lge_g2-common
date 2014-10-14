@@ -407,6 +407,11 @@ service qseecomd /system/bin/qseecomd
     user root
     group root
 
+service audiod /system/bin/audiod
+    class late_start
+    user system
+    group system
+
 service cnd /system/bin/cnd
     class late_start
     socket cnd stream 660 root inet
@@ -457,6 +462,21 @@ service conn_init /system/bin/logwrapper /system/bin/hwaddrs
     user system
     group system wifi
     oneshot
+
+service qrngd /system/bin/qrngd -f
+    class main
+    user root
+    group root
+
+service qrngp /system/bin/qrngp
+    class main
+    user root
+    group root
+    oneshot
+    disabled
+
+on property:sys.boot_completed=1
+    start qrngp
 
 # Running hwaddrs under init is enforcing 0600, we need more
 on property:init.svc.conn_init=stopped

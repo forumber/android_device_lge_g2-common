@@ -57,6 +57,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/gps/sec_config:system/etc/sec_config
 
+PRODUCT_PACKAGES += \
+    com.qualcomm.location \
+
 # Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
@@ -164,12 +167,23 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	e2fsck
 
+# Qualcomm Random Number Generator
 PRODUCT_PACKAGES += \
-	libgenlock \
+	qrngd \
+	qrngp
+
+# QCOM Display
+PRODUCT_PACKAGES += \
 	hwcomposer.msm8974 \
 	gralloc.msm8974 \
 	copybit.msm8974 \
-	memtrack.msm8974
+	memtrack.msm8974 \
+	libgenlock \
+	libmemalloc \
+	liboverlay \
+	libqdutils \
+	libtilerenderer
+
 
 # Local wrapper for fixups
 PRODUCT_PACKAGES += \
@@ -177,26 +191,40 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-	audio.primary.msm8974 \
-	audio.a2dp.default \
-	audio.usb.default \
-	audio.r_submix.default \
-	libaudio-resampler \
-	libqcomvisualizer \
-	libqcomvoiceprocessing \
-	libqcomvoiceprocessingdescriptors
+    audiod \
+    audio.a2dp.default \
+    audio.primary.msm8974 \
+    audio.r_submix.default \
+    audio.usb.default \
+    audio_policy.msm8974 \
+    libaudio-resampler \
+    libqcompostprocbundle \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    libqcomvoiceprocessingdescriptors \
+    tinymix
 
+# Omx
 PRODUCT_PACKAGES += \
-	libmm-omxcore \
-	libdivxdrmdecrypt \
-	libOmxVdec \
-	libOmxVenc \
-	libOmxCore \
-	libstagefrighthw \
-	libc2dcolorconvert
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libc2dcolorconvert \
+    libdashplayer \
+    libdivxdrmdecrypt \
+    libmm-omxcore \
+    libstagefrighthw
 
 PRODUCT_PACKAGES += \
 	libloc_adapter
+
+# QCOM
+PRODUCT_PROPERTY_OVERRIDES += \
+    com.qc.hardware=true
 
 PRODUCT_PACKAGES += \
 	hwaddrs
@@ -219,7 +247,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	media.aac_51_output_enabled=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-        debug.egl.recordable.rgba8888=1
+	debug.egl.recordable.rgba8888=1
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -232,17 +260,30 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.qualcomm.sns.daemon=i \
 	debug.qualcomm.sns.libsensor1=e
 
-# Audio Configuration
+# Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.audio.handset.mic.type=digital \
-	persist.audio.dualmic.config=endfire \
-	persist.audio.fluence.voicecall=true \
-	persist.audio.fluence.voicerec=false \
-	persist.audio.fluence.speaker=false \
-	af.resampler.quality=4 \
-	audio.offload.buffer.size.kb=32 \
-	audio.offload.gapless.enabled=false \
-	av.offload.enable=0
+    af.resampler.quality=4
+
+# Audio offload
+PRODUCT_PROPERTY_OVERRIDES += \
+    audio.offload.buffer.size.kb=32 \
+    audio.offload.gapless.enabled=false \
+    audio.offload.multiple.enabled=false \
+    audio.offload.pcm.enable=false \
+    av.offload.enable=false \
+    av.streaming.offload.enable=false
+
+# Enable AAC 5.1 output
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.aac_51_output_enabled=true
+
+# Voice Call
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qc.sdk.audio.fluencetype=fluence \
+    persist.audio.dualmic.config=endfire \
+    persist.audio.fluence.voicecall=true \
+    persist.audio.fluence.voicerec=false \
+    persist.audio.fluence.speaker=true
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
