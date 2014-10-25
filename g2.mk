@@ -186,6 +186,8 @@ PRODUCT_PACKAGES += \
 	libqdutils \
 	libtilerenderer
 
+PRODUCT_PACKAGES += \
+	qcmediaplayer
 
 # Local wrapper for fixups
 PRODUCT_PACKAGES += \
@@ -244,10 +246,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0 \
 	wifi.supplicant_scan_interval=120
 
-# Enable AAC 5.1 output
-PRODUCT_PROPERTY_OVERRIDES += \
-	media.aac_51_output_enabled=true
-
 PRODUCT_PROPERTY_OVERRIDES += \
 	debug.egl.recordable.rgba8888=1
 
@@ -264,28 +262,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    af.resampler.quality=4
-
-# Audio offload
-PRODUCT_PROPERTY_OVERRIDES += \
-    audio.offload.buffer.size.kb=32 \
-    audio.offload.gapless.enabled=false \
-    audio.offload.multiple.enabled=false \
-    audio.offload.pcm.enable=false \
+    af.resampler.quality=4 \
+    audio.offload.disable=0 \
+    audio.offload.min.duration.secs=30 \
     av.offload.enable=false \
-    av.streaming.offload.enable=false
-
-# Enable AAC 5.1 output
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.aac_51_output_enabled=true
-
-# Voice Call
-PRODUCT_PROPERTY_OVERRIDES += \
+    media.aac_51_output_enabled=true \
     ro.qc.sdk.audio.fluencetype=fluence \
-    persist.audio.dualmic.config=endfire \
+    ro.qc.sdk.audio.ssr=false \
+    persist.audio.aanc.enable=false \
+    persist.audio.fluence.mode=endfire \
     persist.audio.fluence.voicecall=true \
-    persist.audio.fluence.voicerec=false \
-    persist.audio.fluence.speaker=true
+    persist.audio.handset.mic=digital \
+    persist.audio.handset_rx_type=DEFAULT \
+    persist.audio.nsenabled=ON \
+    persist.audio.spkcall_2mic=OFF \
+    persist.audio.voice.clarity=none \
+    persist.audio.voicecall.mic=0
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
