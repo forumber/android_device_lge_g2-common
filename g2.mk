@@ -174,6 +174,10 @@ PRODUCT_PACKAGES += \
 	qrngd \
 	qrngp
 
+# Power HAL
+PRODUCT_PACKAGES += \
+	power.msm8974
+
 # QCOM Display
 PRODUCT_PACKAGES += \
 	hwcomposer.msm8974 \
