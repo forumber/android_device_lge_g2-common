@@ -30,8 +30,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/ueventd.g2.rc:root/ueventd.g2.rc \
     $(LOCAL_PATH)/ramdisk/fstab.g2:root/fstab.g2 \
     $(LOCAL_PATH)/ramdisk/init.g2.post_boot.sh:root/init.g2.post_boot.sh \
-    $(LOCAL_PATH)/ramdisk/init.g2.sensors.sh:root/init.g2.sensors.sh \
-    $(LOCAL_PATH)/ramdisk/init.g2.thermal_conf.sh:root/init.g2.thermal_conf.sh
+    $(LOCAL_PATH)/ramdisk/init.g2.sensors.sh:root/init.g2.sensors.sh
 
 # Sensor Configs
 PRODUCT_COPY_FILES += \
