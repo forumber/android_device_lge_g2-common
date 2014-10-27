@@ -13,4 +13,9 @@ $(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wcd9320; \
 	ln -sf /data/misc/audio/mbhc.bin \
 	$(TARGET_OUT_ETC)/firmware/wcd9320/wcd9320_mbhc.bin)
 
+$(shell ln -sf $(TARGET_OUT_ETC)/thermald-8974.conf \
+	$(TARGET_OUT_ETC)/thermald.conf; \
+	ln -sf $(TARGET_OUT_ETC)/thermal-engine-8974.conf \
+	$(TARGET_OUT_ETC)/thermal-engine.conf)
+
 endif
