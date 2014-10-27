@@ -72,11 +72,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/touch_dev.idc:system/usr/idc/touch_dev.idc
 
 # Prepatch to fix BT/WiFi bus lockups
-PRODUCT_COPY_FILES += device/lge/g2-common/bluetooth/bcm4335_prepatch.hcd:system/etc/firmware/bcm4335_prepatch.hcd
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/bluetooth/bcm4335_prepatch.hcd:system/etc/firmware/bcm4335_prepatch.hcd
 
 # init.d
 PRODUCT_COPY_FILES += \
-	device/lge/g2-common/configs/10copy_firmwares:system/etc/init.d/10copy_firmwares
+     $(LOCAL_PATH)/configs/10copy_firmwares:system/etc/init.d/10copy_firmwares
 
 # Permissions
 PRODUCT_COPY_FILES += \
