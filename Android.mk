@@ -18,4 +18,6 @@ $(shell ln -sf /system/etc/thermald-8974.conf \
 	ln -sf /system/etc/thermal-engine-8974.conf \
 	$(TARGET_OUT_ETC)/thermal-engine.conf)
 
+$(shell ln -sf /system/etc/firmware $(TARGET_OUT)/vendor/firmware)
+
 endif
