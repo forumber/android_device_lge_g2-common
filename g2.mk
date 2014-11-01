@@ -226,7 +226,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.call_ring.multiple=0 \
 	persist.radio.mode_pref_nv10=1 \
     ro.telephony.ril_class=LgeLteRIL \
-	ro.telephony.ril.v3=qcomdsds
+	ro.telephony.ril.v3=qcomdsds \
+	rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
+	rild.libargs=-d /dev/smd0 \
+	ro.telephony.default_network=9
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.hwc.mdpcomp.enable=true \
@@ -250,10 +253,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # QCOM
 PRODUCT_PROPERTY_OVERRIDES += \
-    com.qc.hardware=true
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	rild.libpath=/vendor/lib/libril-qc-qmi-1.so
+    com.qc.hardware=true \
+    ro.vendor.extension_library=/vendor/lib/libqc-opt.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	drm.service.enabled=true
@@ -272,8 +273,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.sensors.pedometer=true \
 	ro.qualcomm.sensors.pam=true \
 	ro.qualcomm.sensors.scrn_ortn=true \
-	debug.qualcomm.sns.hal=i \
-	debug.qualcomm.sns.daemon=i \
+	debug.qualcomm.sns.hal=e \
+	debug.qualcomm.sns.daemon=e \
 	debug.qualcomm.sns.libsensor1=e
 
 # Audio
