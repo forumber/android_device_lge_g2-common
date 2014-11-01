@@ -4,6 +4,9 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
     write /sys/class/leds/lcd-backlight/brightness 110
     chown system system /sys/kernel/debug/kgsl/proc
+    
+    chown system system /sys/class/lg_rgb_led/use_patterns/setting
+    write /sys/class/lg_rgb_led/use_patterns/setting 1
 
 on init
     chmod 0701 /mnt/media_rw
@@ -315,6 +318,9 @@ on charger
 
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
+
+on property:init.svc.bootanim=stopped
+    write /sys/class/lg_rgb_led/use_patterns/setting 0
 
 service rmt_storage /system/bin/rmt_storage
     class core
