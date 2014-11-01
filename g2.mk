@@ -228,7 +228,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=LgeLteRIL \
 	ro.telephony.ril.v3=qcomdsds \
 	rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
-	rild.libargs=-d /dev/smd0 \
 	ro.telephony.default_network=9
 
 PRODUCT_PROPERTY_OVERRIDES += \
