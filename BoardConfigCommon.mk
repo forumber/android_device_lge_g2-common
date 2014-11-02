@@ -130,6 +130,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/lge/g2-common/releasetools
 COMMON_GLOBAL_CFLAGS += -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 BOARD_HARDWARE_CLASS := device/lge/g2-common/cmhw/
+PRODUCT_BOOT_JARS := $(subst $(space),:,$(PRODUCT_BOOT_JARS))
 
 # Dex optimization
 WITH_DEXPREOPT := true

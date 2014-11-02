@@ -162,9 +162,6 @@ PRODUCT_PACKAGES += \
 	libqdutils \
 	libtilerenderer
 
-PRODUCT_PACKAGES += \
-	qcmediaplayer
-
 # Local wrapper for fixups
 PRODUCT_PACKAGES += \
 	camera.g2
@@ -197,7 +194,11 @@ PRODUCT_PACKAGES += \
     libdashplayer \
     libdivxdrmdecrypt \
     libmm-omxcore \
-    libstagefrighthw
+    libstagefrighthw \
+    qcmediaplayer
+
+PRODUCT_BOOT_JARS += \
+    qcmediaplayer
 
 PRODUCT_PACKAGES += \
 	libloc_adapter
